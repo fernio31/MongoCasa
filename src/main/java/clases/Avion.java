@@ -14,14 +14,14 @@ import java.util.List;
 @NoArgsConstructor
 
 public class Avion {
-    @Id
+    @Id@GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     private String marca;
     private String modelo;
     private String aerolinea;
 
     @ManyToOne
-    private List<Aeropuerto> aeropuertos = new ArrayList<Aeropuerto>();
+    private Aeropuerto aeropuertos;
 
 
     public Avion(String marca, String modelo, String aerolinea) {

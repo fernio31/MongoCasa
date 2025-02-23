@@ -44,16 +44,16 @@ public class MainHibernate {
             System.out.println("Error al actualizar vuelo");
         }
         try {
-            AeropuertoDAO.leerTodos();
-            AvionDAO.consultarAviones();
-            VueloDAO.consultarVuelos();
+            System.out.println(AeropuertoDAO.leerTodos());
+            System.out.println(AvionDAO.consultarAviones());
+            System.out.println(VueloDAO.consultarVuelos());
         } catch (Exception e) {
             e.printStackTrace();
             System.out.println("Error al consultar aeropuertos, aviones o vuelos");
         }
 
         try {
-            VueloDAO.consultarVuelosConAvionAeropuerto();
+            System.out.println(VueloDAO.consultarVuelosConAvionAeropuerto());
         } catch (Exception e) {
             e.printStackTrace();
             System.out.println("Error al consultar vuelos con avion y aeropuerto");

@@ -14,12 +14,13 @@ import java.util.List;
 @NoArgsConstructor
 
 public class Aeropuerto {
-    @Id
+    @Id@GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int id;
     private String codigo;
     private String nombre;
-    @OneToMany(mappedBy = "aeropuerto", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "aeropuerto", cascade = {CascadeType.PERSIST, CascadeType.MERGE, CascadeType.REMOVE}, fetch = FetchType.EAGER)
     private List<Vuelo> vuelos;
-    @OneToMany(mappedBy = "avion", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "aeropuertos", cascade = {CascadeType.PERSIST, CascadeType.MERGE}, fetch = FetchType.EAGER)
     private List<Avion> aviones;
 
 

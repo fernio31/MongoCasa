@@ -12,9 +12,11 @@ import lombok.Setter;
 @NoArgsConstructor
 
 public class Vuelo {
-    @Id
+    @Id@GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int id;
     private String codigo;
-    @OneToOne(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
+    @ManyToOne(cascade = {CascadeType.MERGE, CascadeType.REFRESH})
+    @JoinColumn(name = "avion_id")
     private Avion avion;
     private double duracion;
     private int pasajeros;
