@@ -19,6 +19,18 @@ public class AeropuertoDAO {
         .append("nombre", aeropuerto.getNombre())
         .append("vuelos", aeropuerto.getVuelos())
         .append("aviones", aeropuerto.getAviones());
+
+        if (aeropuerto.getNombre()!= null){
+            doc.append("nombre", aeropuerto.getNombre());
+
+        }
+
+        if(aeropuerto.getVuelos() != null){
+            for(Vuelo vuelo : aeropuerto.getVuelos()){
+                VueloDAO.insertVuelo(vuelo);
+            }
+
+        }
         collection.insertOne(doc);
         return true;
     }
